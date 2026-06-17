@@ -2,7 +2,9 @@ use crate::types::PentoType;
 use crate::types::PentoType::E;
 
 // Rotate the passed matrix counterclockwise
-pub fn rotate_positive<const C: usize, const R: usize>(piece: &[[PentoType; C]; R]) -> [[PentoType; R]; C] {
+pub fn rotate_positive<const C: usize, const R: usize>(
+    piece: &[[PentoType; C]; R],
+) -> [[PentoType; R]; C] {
     let mut out = [[E; R]; C];
 
     for r in 0..R {
@@ -36,4 +38,17 @@ pub fn reflect_vertical<const R: usize, const C: usize>(
         out.swap(r, R - 1 - r);
     }
     out
+}
+
+pub fn pretty_print_piece<const R: usize, const C: usize>(piece: &[[PentoType; C]; R]) {
+    for r in 0..R {
+        for c in 0..C {
+            if c + 1 < C {
+                print!("{} ", piece[r][c]);
+            } else {
+                print!("{}", piece[r][c]);
+            }
+        }
+        println!();
+    }
 }

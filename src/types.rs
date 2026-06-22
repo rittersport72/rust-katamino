@@ -50,3 +50,10 @@ pub const PENTOMINO_W: [[PentoType; 3]; 3] = [[W, E, E], [W, W, E], [E, W, W]];
 pub const PENTOMINO_X: [[PentoType; 3]; 3] = [[E, X, E], [X, X, X], [E, X, E]];
 pub const PENTOMINO_Y: [[PentoType; 4]; 4] = [[E, E, Y, E], [E, Y, Y, E], [E, E, Y, E], [E, E, Y, E]];
 pub const PENTOMINO_Z: [[PentoType; 3]; 3] = [[Z, Z, E], [E, Z, E], [E, Z, Z]];
+
+pub const GREY_COLOR: [f32; 4] = [0.84, 0.84, 0.70, 1.0];
+pub const DARK_GREY_COLOR: [f32; 4] = [0.54, 0.54, 0.44, 1.0];
+pub const BROWN_COLOR: [f32; 4] = [0.55, 0.29, 0.29, 1.0];
+pub const DARK_BROWN_COLOR: [f32; 4] = [0.34, 0.14, 0.14, 1.0];
+pub const RED_BROWN_COLOR: [f32; 4] = [0.52, 0.24, 0.07, 1.0];
+pub const OCHRE_COLOR: [f32; 4] = [0.77, 0.61, 0.03, 1.0];

@@ -1,3 +1,4 @@
+mod pentomino;
 mod transpose;
 mod types;
 

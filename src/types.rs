@@ -1,4 +1,5 @@
 use std::fmt::Display;
+use std::slice::Iter;
 use PentoType::*;
 
 #[derive(Debug, Copy, Clone, PartialEq)]
@@ -16,6 +17,36 @@ pub enum PentoType {
     X,
     Y,
     Z,
+}
+
+impl PentoType {
+    pub fn iterator3x3() -> Iter<'static, PentoType> {
+        static PENTO: [PentoType; 8] = [F, P, T, U, V, W, X, Z];
+        PENTO.iter()
+    }
+
+    pub fn iterator4x4() -> Iter<'static, PentoType> {
+        static PENTO: [PentoType; 3] = [L, N, Y];
+        PENTO.iter()
+    }
+
+    pub fn is_pento3x3(pento: PentoType) -> bool {
+        for p in PentoType::iterator3x3() {
+            if *p == pento {
+                return true;
+            }
+        }
+        false
+    }
+
+    pub fn is_pento4x4(pento: PentoType) -> bool {
+        for p in PentoType::iterator4x4() {
+            if *p == pento {
+                return true;
+            }
+        }
+        false
+    }
 }
 
 impl Display for PentoType {
@@ -40,15 +71,18 @@ impl Display for PentoType {
 
 pub const PENTOMINO_F: [[PentoType; 3]; 3] = [[E, F, F], [F, F, E], [E, F, E]];
 pub const PENTOMINO_I: [[PentoType; 5]; 1] = [[I, I, I, I, I]];
-pub const PENTOMINO_L: [[PentoType; 4]; 4] = [[E, L, E, E], [E, L, E, E], [E, L, E, E], [E, L, L, E]];
-pub const PENTOMINO_N: [[PentoType; 4]; 4] = [[E, E, N, E], [E, N, N, E], [E, N, E, E], [E, N, E, E]];
+pub const PENTOMINO_L: [[PentoType; 4]; 4] =
+    [[E, L, E, E], [E, L, E, E], [E, L, E, E], [E, L, L, E]];
+pub const PENTOMINO_N: [[PentoType; 4]; 4] =
+    [[E, E, N, E], [E, N, N, E], [E, N, E, E], [E, N, E, E]];
 pub const PENTOMINO_P: [[PentoType; 3]; 3] = [[E, P, P], [E, P, P], [E, P, E]];
 pub const PENTOMINO_T: [[PentoType; 3]; 3] = [[T, T, T], [E, T, E], [E, T, E]];
 pub const PENTOMINO_U: [[PentoType; 3]; 3] = [[U, E, U], [U, U, U], [E, E, E]];
 pub const PENTOMINO_V: [[PentoType; 3]; 3] = [[V, E, E], [V, E, E], [V, V, V]];
 pub const PENTOMINO_W: [[PentoType; 3]; 3] = [[W, E, E], [W, W, E], [E, W, W]];
 pub const PENTOMINO_X: [[PentoType; 3]; 3] = [[E, X, E], [X, X, X], [E, X, E]];
-pub const PENTOMINO_Y: [[PentoType; 4]; 4] = [[E, E, Y, E], [E, Y, Y, E], [E, E, Y, E], [E, E, Y, E]];
+pub const PENTOMINO_Y: [[PentoType; 4]; 4] =
+    [[E, E, Y, E], [E, Y, Y, E], [E, E, Y, E], [E, E, Y, E]];
 pub const PENTOMINO_Z: [[PentoType; 3]; 3] = [[Z, Z, E], [E, Z, E], [E, Z, Z]];
 
 pub const GREY_COLOR: [f32; 4] = [0.84, 0.84, 0.70, 1.0];

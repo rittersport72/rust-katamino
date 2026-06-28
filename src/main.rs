@@ -2,7 +2,9 @@ mod pentomino;
 mod transpose;
 mod types;
 
+use crate::pentomino::Pentomino;
 use crate::transpose::{pretty_print_piece, rotate_positive};
+use crate::types::PentoType::F;
 use crate::types::*;
 
 fn main() {
@@ -29,4 +31,11 @@ fn main() {
     println!("rotate");
     piece = rotate_positive(&piece);
     pretty_print_piece(&piece);
+
+
+    let my = Pentomino::<3, 3>::new(F);
+
+    for pento in PentoType::iterator4x4() {
+        println!("{:?}", pento);
+    }
 }

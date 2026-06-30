@@ -2,7 +2,7 @@ use std::fmt::Display;
 use std::slice::Iter;
 use PentoType::*;
 
-#[derive(Debug, Copy, Clone, PartialEq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum PentoType {
     E,
     F,

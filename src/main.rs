@@ -24,21 +24,8 @@ fn main() {
     pretty_print_piece(&piece);
 
 
-    let mut v3x3 = Vec::new();
-
-    for pento in PentoType::iterator3x3() {
-        v3x3.push(Pentomino::<3, 3>::new(*pento));
-        println!("{:?}", pento);
-    }
-
-    let mut v4x4 = Vec::new();
-
-    for pento in PentoType::iterator4x4() {
-        v4x4.push(Pentomino::<4, 4>::new(*pento));
-        println!("{:?}", pento);
-    }
+    let abc: Pentomino<3, 3> = Pentomino::new(PentoType::T);
 
     println!("I {:?}", PENTOMINO_I);
     pretty_print_piece(&PENTOMINO_I);
-
 }
